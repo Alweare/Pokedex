@@ -1,8 +1,12 @@
+import {Types} from "./types";
+import {Stats} from "./stats";
+
 export interface Pokemon {
   id:number,
   name: string,
-  type:Array<string>,
-  height: string,
-  weight: string,
+  image:string,
+  types:Types[],
+  stats:Stats,
+  apiGeneration:number
 
 }

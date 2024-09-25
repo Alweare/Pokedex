@@ -1,9 +1,23 @@
 <div class="flex justify-center justify-items-center">
-  <ul >@for (generation of generations; track $index) {
-    <li class="bg-amber-50">
-      {{ generation }}
+  <ul >
+    @for (generation of generations; track $index) {
+    <li >
+      <ul>
+
+        <button (click)="listByGeneration(generation.id)"  class="w-full text-center text-[35px] bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 text-white"hj>
+          {{ generation.name }}
+        </button>
+
+        @if (idGen === generation.id){
+
+        <li>
+          <app-pokemons [currentGen]="idGen"></app-pokemons>
+        </li>
+        }
+      </ul>
     </li>
 
-  }</ul>
+    }
+  </ul>
 </div>
 
