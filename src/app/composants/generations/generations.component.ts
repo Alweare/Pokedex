@@ -1,11 +1,13 @@
 import {Component} from '@angular/core';
 import {PokemonsComponent} from "../pokemons/pokemons.component";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-generations',
   standalone: true,
   imports: [
-    PokemonsComponent
+    PokemonsComponent,
+    RouterLink
   ],
   templateUrl: './generations.component.html',
   styleUrl: './generations.component.scss'

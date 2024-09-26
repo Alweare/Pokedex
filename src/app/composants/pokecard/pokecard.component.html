@@ -1,0 +1,121 @@
+@if(pokemon){
+<!--  <div class="flex items-center justify-center h-screen bg-gray-200">-->
+<!--    <div class="w-80 bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">-->
+<!--      &lt;!&ndash; Nom du Pokémon et HP &ndash;&gt;-->
+<!--      <div class="p-4 bg-gray-800 text-white text-center">-->
+<!--        <span class="font-bold text-lg">{{ pokemon.name }}</span>-->
+<!--        <span class="block text-sm mt-1">HP: {{ pokemon.stats.HP }}</span>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; Image du Pokémon &ndash;&gt;-->
+<!--      <div class="flex justify-center p-4">-->
+<!--        <img [src]="pokemon.image" alt="{{ pokemon.name }}" class="h-32 w-32 object-contain">-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; Stats du Pokémon &ndash;&gt;-->
+<!--      <div class="p-4 bg-gray-100">-->
+<!--        <ul class="text-gray-700 space-y-2">-->
+<!--          <li class="flex justify-between">-->
+<!--            <span class="font-semibold">Attack:</span>-->
+<!--            <span>{{ pokemon.stats.attack }}</span>-->
+<!--          </li>-->
+<!--          <li class="flex justify-between">-->
+<!--            <span class="font-semibold">Defense:</span>-->
+<!--            <span>{{ pokemon.stats.defense }}</span>-->
+<!--          </li>-->
+<!--          <li class="flex justify-between">-->
+<!--            <span class="font-semibold">Speed:</span>-->
+<!--            <span>{{ pokemon.stats.speed }}</span>-->
+<!--          </li>-->
+<!--          <li class="flex justify-between">-->
+<!--            <span class="font-semibold">Type:</span>-->
+<!--            @for(type of pokemon.apiTypes; track $index){-->
+<!--            <span>{{ type.name }}</span>-->
+<!--            }-->
+<!--          </li>-->
+
+
+
+
+<!--        </ul>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <div class="max-w-sm rounded-lg overflow-hidden shadow-lg my-4 mx-auto">
+    <!-- Partie supérieure de la carte : Nom, ID et PV -->
+    <div class="flex justify-between items-center px-4 py-2 bg-yellow-500">
+      <div class="text-left">
+        <span class="text-xl font-bold">{{ pokemon?.name }}</span>
+      </div>
+      <div class="text-right">
+        <span class="text-sm">ID: {{ pokemon?.pokedexId }}</span>
+        <span class="text-xl font-bold">PV {{ pokemon?.stats?.HP }}</span>
+        <span class="inline-block text-yellow-600">⚡</span>
+      </div>
+    </div>
+
+    <!-- Image du Pokémon -->
+    <div class="flex justify-center items-center p-4 bg-white">
+      <img [src]="pokemon?.image" alt="{{ pokemon?.name }}" class="w-40 h-40 object-contain">
+    </div>
+
+    <!-- Numéro, type et autres détails -->
+    <div class="px-4 text-sm text-gray-700">
+      <p class="mb-2">Types:</p>
+      <ul class="flex gap-2">
+        <li *ngFor="let type of pokemon?.apiTypes">
+          <span class="inline-block bg-blue-300 p-1 rounded">{{ type.name }}</span>
+        </li>
+      </ul>
+
+      <p class="mb-2">Taille:  m Poids:  kg</p>
+    </div>
+
+    <!-- Attaque et statistiques -->
+    <div class="bg-yellow-400 px-4 py-2">
+      <div class="flex justify-between items-center">
+        <span class="font-bold">Attaque : {{ pokemon?.stats?.attack }}</span>
+      </div>
+      <div class="flex justify-between">
+        <span>Défense: {{ pokemon?.stats?.defense }}</span>
+        <span>Vitesse: {{ pokemon?.stats?.speed }}</span>
+      </div>
+      <div class="flex justify-between">
+        <span>Attaque Spé: {{ pokemon?.stats?.special_attack }}</span>
+        <span>Défense Spé: {{ pokemon?.stats?.special_defense }}</span>
+      </div>
+    </div>
+
+    <!-- Résistances -->
+    <div class="bg-gray-100 px-4 py-2">
+      <p class="font-bold text-sm">Résistances:</p>
+      <ul>
+        <li *ngFor="let resistance of pokemon?.apiResistances">
+          <span>{{ resistance.name }} : {{ resistance.damage_multiplier }}x ({{ resistance.damage_relation }})</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Évolutions -->
+    <div class="bg-gray-100 px-4 py-2">
+      <p class="font-bold text-sm">Évolutions:</p>
+      <ul>
+        <li *ngFor="let evolution of pokemon?.apiEvolutions">
+          <span>{{ evolution.name }} (ID: {{ evolution.pokedexId }})</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Footer avec les détails supplémentaires -->
+    <div class="px-4 py-2 text-xs text-gray-500 bg-yellow-300">
+      <p>#{{ pokemon?.id }}</p>
+      <p>Nom (slug): {{ pokemon?.slug }}</p>
+    </div>
+  </div>
+
+
+
+}
+

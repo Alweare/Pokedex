@@ -1,10 +1,12 @@
+
+
 <div class="flex justify-center justify-items-center">
   <ul >
     @for (generation of generations; track $index) {
     <li >
       <ul>
 
-        <button (click)="listByGeneration(generation.id)"  class="w-full text-center text-[35px] bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 text-white"hj>
+        <button (click)="listByGeneration(generation.id)"  class="w-full text-center text-[35px] bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 text-white">
           {{ generation.name }}
         </button>
 

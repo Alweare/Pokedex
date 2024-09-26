@@ -1,13 +1,18 @@
 import {Component, inject, OnInit, Input, numberAttribute, Output} from '@angular/core';
 import {ApiService} from "../../services/api.service";
 import {isEmpty} from "rxjs";
+import {JsonPipe} from "@angular/common";
+import {RouterLink} from "@angular/router";
 
 
 
 @Component({
   selector: 'app-pokemons',
   standalone: true,
-  imports: [],
+  imports: [
+    JsonPipe,
+    RouterLink
+  ],
   templateUrl: './pokemons.component.html',
   styleUrl: './pokemons.component.scss'
 })

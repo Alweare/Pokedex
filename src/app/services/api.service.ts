@@ -14,4 +14,10 @@ export class ApiService {
     return this.httpClient.get(`https://pokebuildapi.fr/api/v1/pokemon/generation/${(idGeneration)}`) as Observable<Pokemon[]>;
 
   }
+
+  getById(idPokemon: number | undefined): Observable<Pokemon> {
+
+    return this.httpClient.get(`https://pokebuildapi.fr/api/v1/pokemon/${idPokemon}`) as Observable<Pokemon>;
+
+  }
 }
